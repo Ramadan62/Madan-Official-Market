@@ -192,7 +192,7 @@
   </header>
 
   <section class="hero">
-    <h2>Level Up Your <span>Gaming.</span></h2>
+    <h2>WELCOME TO THE MARKET<span>Gaming.</span></h2>
     <p>
       Selamat datang di Madan Official Market!<br>
       Temukan informasi dan koleksi game favoritmu.
@@ -241,28 +241,28 @@
       {
         name: "Honkai: Star Rail",
         category: "HoYoverse",
-        icon: "🚄",
+        images: "images/Honkai_Star_Rail_App.webp",
         description:
           "Informasi karakter, Light Cone, relic, dan panduan."
       },
       {
         name: "Zenless Zone Zero",
         category: "HoYoverse",
-        icon: "⚡",
+        images: "images/Zenless_Zone_Zero_icon.webp",
         description:
           "Informasi Agent, W-Engine, tim, dan panduan."
       },
       {
         name: "Honkai Impact 3rd",
         category: "HoYoverse",
-        icon: "❄️",
+        images: "images/images (2).jpeg",
         description:
           "Informasi Valkyrie, equipment, dan cerita."
       },
       {
         name: "Genshin Impact",
         category: "HoYoverse",
-        icon: "🌌",
+        images: "images/Genshin_Impact_5th_Anniversary.webp",
         description:
           "Informasi karakter, senjata, artefak, dan Teyvat."
       },
@@ -297,8 +297,13 @@
 
       catalog.innerHTML = results.map(game => `
         <article class="card">
-          <div class="banner">${game.icon}</div>
-          <div class="content">
+          <div class="banner">$<img
+  class="game-image"
+  src="${game.image}"
+  alt="${game.name}"
+  loading="lazy"
+  onerror="this.style.display='none'">
+        <div class="content">
             <h3>${game.name}</h3>
             <p>${game.description}</p>
             <button
