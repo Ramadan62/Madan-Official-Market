@@ -296,25 +296,27 @@
       }
 
       catalog.innerHTML = results.map(game => `
-        <article class="card">
-          <div class="banner">$<img
-  class="game-image"
-  src="${game.image}"
-  alt="${game.name}"
-  loading="lazy"
-  onerror="this.style.display='none'">
-        <div class="content">
-            <h3>${game.name}</h3>
-            <p>${game.description}</p>
-            <button
-              onclick="showInfo('${game.name}')"
-            >
-              Lihat Informasi
-            </button>
-          </div>
-        </article>
-      `).join("");
-    }
+  <article class="card">
+    <img
+      class="game-image"
+      src="${game.image}"
+      alt="${game.name}"
+      loading="lazy"
+      onerror="this.style.display='none'"
+    >
+
+    <div class="content">
+      <h3>${game.name}</h3>
+      <p>${game.description}</p>
+
+      <button
+        onclick="showInfo('${game.name}')"
+      >
+        Lihat Informasi
+      </button>
+    </div>
+  </article>
+`).join("")
 
     function showInfo(name) {
       const game = games.find(item => item.name === name);
