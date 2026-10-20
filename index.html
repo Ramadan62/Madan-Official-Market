@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madan Official Market</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080b16;
+      color: white;
+    }
+
+    header {
+      padding: 20px;
+      background: #11162a;
+      border-bottom: 2px solid #3478ff;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #65a5ff;
+    }
+
+    header p {
+      color: #b8bde0;
+      margin-top: 7px;
+      font-size: 13px;
+    }
+
+    .hero {
+      padding: 55px 20px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, #31205d, transparent 70%);
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .hero span {
+      color: #8c7aff;
+    }
+
+    .hero p {
+      color: #b8c1db;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 0 45px;
+    }
+
+    .container h2 {
+      margin-bottom: 18px;
+    }
+
+    .search {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    input, select {
+      padding: 13px;
+      background: #141a30;
+      color: white;
+      border: 1px solid #343c60;
+      border-radius: 9px;
+      min-width: 0;
+      flex: 1;
+      width: 100%;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: #12172a;
+      border: 1px solid #293354;
+      border-radius: 13px;
+      overflow: hidden;
+    }
+
+    .banner {
+      height: 115px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      background: linear-gradient(135deg, #1e4d9b, #6738a0);
+    }
+
+    .card:nth-child(2) .banner {
+      background: linear-gradient(135deg, #44246f, #9b3b87);
+    }
+
+    .card:nth-child(3) .banner {
+      background: linear-gradient(135deg, #14566d, #3150a5);
+    }
+
+    .card:nth-child(4) .banner {
+      background: linear-gradient(135deg, #66501e, #a45c36);
+    }
+
+    .content {
+      padding: 14px;
+    }
+
+    .content h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      color: #b6bfd7;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    button {
+      width: 100%;
+      padding: 11px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #2878ff, #8549e8);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .about {
+      margin-top: 35px;
+      padding: 20px;
+      background: #12172a;
+      border: 1px solid #293354;
+      border-radius: 12px;
+      line-height: 1.7;
+      color: #c3cbe0;
+    }
+
+    footer {
+      padding: 25px 15px;
+      text-align: center;
+      background: #11162a;
+      color: #9ca7c5;
+      font-size: 12px;
+    }
+
+    @media (min-width: 700px) {
+      .catalog {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .banner {
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .catalog {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>MADAN OFFICIAL MARKET</h1>
+    <p>YOUR GAMING COLLECTION</p>
+  </header>
+
+  <section class="hero">
+    <h2>Level Up Your <span>Gaming.</span></h2>
+    <p>
+      Selamat datang di Madan Official Market!<br>
+      Temukan informasi dan koleksi game favoritmu.
+    </p>
+  </section>
+
+  <main class="container">
+    <h2>🎮 Katalog Game</h2>
+
+    <div class="search">
+      <input
+        id="search"
+        type="search"
+        placeholder="Cari game..."
+      >
+
+      <select id="filter">
+        <option value="semua">Semua Game</option>
+        <option value="hoyoverse">HoYoverse</option>
+      </select>
+    </div>
+
+    <div class="catalog" id="catalog"></div>
+
+    <div class="about">
+      <h3>Tentang Kami</h3>
+      <p>
+        Madan Official Market adalah website katalog
+        informasi gaming dengan desain modern.
+        Kami menyediakan informasi game dan
+        koleksi gaming favorit.
+      </p>
+      <p>
+        Website independen, tidak berafiliasi
+        dengan penerbit game yang tercantum.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Madan Official Market
+  </footer>
+
+  <script>
+    const games = [
+      {
+        name: "Honkai: Star Rail",
+        category: "HoYoverse",
+        icon: "🚄",
+        description:
+          "Informasi karakter, Light Cone, relic, dan panduan."
+      },
+      {
+        name: "Zenless Zone Zero",
+        category: "HoYoverse",
+        icon: "⚡",
+        description:
+          "Informasi Agent, W-Engine, tim, dan panduan."
+      },
+      {
+        name: "Honkai Impact 3rd",
+        category: "HoYoverse",
+        icon: "❄️",
+        description:
+          "Informasi Valkyrie, equipment, dan cerita."
+      },
+      {
+        name: "Genshin Impact",
+        category: "HoYoverse",
+        icon: "🌌",
+        description:
+          "Informasi karakter, senjata, artefak, dan Teyvat."
+      },
+      {
+         name: "4 game 1 Email",
+        category: "HoYoverse",
+        icon:  "🌆",
+        description:
+          "Infomasi 4 game Hoyovers dalam 1 akun email." 
+      }
+    ];
+
+    const catalog = document.getElementById("catalog");
+    const search = document.getElementById("search");
+    const filter = document.getElementById("filter");
+
+    function showGames() {
+      const keyword = search.value.toLowerCase().trim();
+      const selected = filter.value;
+
+      const results = games.filter(game => {
+        return game.name.toLowerCase().includes(keyword)
+          && (selected === "semua"
+          || game.category.toLowerCase() === selected);
+      });
+
+      if (results.length === 0) {
+        catalog.innerHTML =
+          "<p>Game tidak ditemukan.</p>";
+        return;
+      }
+
+      catalog.innerHTML = results.map(game => `
+        <article class="card">
+          <div class="banner">${game.icon}</div>
+          <div class="content">
+            <h3>${game.name}</h3>
+            <p>${game.description}</p>
+            <button
+              onclick="showInfo('${game.name}')"
+            >
+              Lihat Informasi
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function showInfo(name) {
+      const game = games.find(item => item.name === name);
+
+      if (game) {
+        alert(game.name + "\n\n" + game.description);
+      }
+    }
+
+    search.addEventListener("input", showGames);
+    filter.addEventListener("change", showGames);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    showGames();
+  </script>
+
+</body>
+  </html>
