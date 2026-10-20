@@ -1,8 +1,9 @@
-
 .game-image {
   display: block;
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  background: #202746;
+  height: 160px;
+  object-fit: contain;
+  object-position: center;
+  background: #151b30;
+  border-radius: 12px;
 }
